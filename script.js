@@ -6,6 +6,18 @@ function getComputerChoice() {
     return choices[Math.floor(Math.random() * choices.length)];
 }
 
+function getPlayerChoice() {
+    let playerSelection = prompt("enter either rock, paper, or scissors: ")
+    playerSelection = playerSelection.toLowerCase();
+    return playerSelection;
+    /* TO BE ADDED LATER WHEN I CAN FIGURE IT OUT
+    if (playerSelection != "rock" || playerSelection != "paper" || playerSelection || "scissors") {
+        console.log("Oops! You did not enter a valid choice.")
+    }
+    */
+
+}
+
 function playRound(playerSelection, computerSelection) {
 
     if (playerSelection == "rock" && computerSelection == "scissors") {
@@ -46,16 +58,8 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
     const computerSelection = getComputerChoice();
-    let playerSelection = prompt("enter what to play: ");
+    const playerSelection = getPlayerChoice();
     playRound(playerSelection, computerSelection);
     console.log("total # wins: ", result);
 }
 
-/*
-let playerSelection = "paper";
-const computerSelection = getComputerChoice();
-
-playerSelection = playerSelection.toLowerCase();
-
-playRound(playerSelection, computerSelection);
-*/
