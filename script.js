@@ -1,4 +1,5 @@
-let result = 0;
+let playerScore = 0;
+let computerScore = 0;
 
 function getComputerChoice() {
     let choices = ['rock', 'paper', 'scissors'];
@@ -22,44 +23,60 @@ function playRound(playerSelection, computerSelection) {
 
     if (playerSelection == "rock" && computerSelection == "scissors") {
         console.log("You win! Rock beats Scissors");
-        return result++;
+        return playerScore++;
     }
 
     else if (playerSelection == "rock" && computerSelection == "paper") {
         console.log("You lose! Paper beats Rock");
-        return result--;
+        return computerScore++;
     }
 
     else if (playerSelection == "scissors" && computerSelection == "rock") {
         console.log("You lose! Rock beats Scissors");
-        return result--;
+        return computerScore++;
     }
 
     else if (playerSelection == "scissors" && computerSelection == "paper") {
         console.log("You win! Scissors beats Paper");
-        return result++;
+        return playerScore++;
     }
 
     else if (playerSelection == "paper" && computerSelection == "rock") {
         console.log("You win! Paper beats Rock");
-        return result++;
+        return playerScore++;
     }
 
     else if (playerSelection == "paper" && computerSelection == "scissors") {
         console.log("You lose! Scissors beats Paper");
-        return result--;
+        return computerScore--;
     }
 
     else if (playerSelection == computerSelection) {
         console.log("Tie!");
-        return result;
+        return;
     }
 }
 
 function game() {
-    const computerSelection = getComputerChoice();
-    const playerSelection = getPlayerChoice();
+    let computerSelection = getComputerChoice();
+    let playerSelection = getPlayerChoice();
     playRound(playerSelection, computerSelection);
-    console.log("total # wins: ", result);
+    console.log("score ", playerScore + "-" + computerScore);
+    computerSelection = getComputerChoice();
+    playerSelection = getPlayerChoice();
+    playRound(playerSelection, computerSelection);
+    console.log("score ", playerScore + "-" + computerScore);
+    computerSelection = getComputerChoice();
+    playerSelection = getPlayerChoice();
+    playRound(playerSelection, computerSelection);
+    console.log("score ", playerScore + "-" + computerScore);
+    computerSelection = getComputerChoice();
+    playerSelection = getPlayerChoice();
+    playRound(playerSelection, computerSelection);
+    console.log("score ", playerScore + "-" + computerScore);
+    computerSelection = getComputerChoice();
+    playerSelection = getPlayerChoice();
+    playRound(playerSelection, computerSelection);
+    console.log("final score ", playerScore + "-" + computerScore);
 }
 
