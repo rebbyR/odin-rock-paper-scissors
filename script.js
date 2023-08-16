@@ -11,11 +11,7 @@ function getPlayerChoice() {
     let playerSelection = prompt("enter either rock, paper, or scissors: ")
     playerSelection = playerSelection.toLowerCase();
     return playerSelection;
-    /* TO BE ADDED LATER WHEN I CAN FIGURE IT OUT
-    if (playerSelection != "rock" || playerSelection != "paper" || playerSelection || "scissors") {
-        console.log("Oops! You did not enter a valid choice.")
-    }
-    */
+
 
 }
 
@@ -62,6 +58,7 @@ function game() {
     let playerSelection = getPlayerChoice();
     playRound(playerSelection, computerSelection);
     console.log("score ", playerScore + "-" + computerScore);
+    /*
     computerSelection = getComputerChoice();
     playerSelection = getPlayerChoice();
     playRound(playerSelection, computerSelection);
@@ -78,5 +75,27 @@ function game() {
     playerSelection = getPlayerChoice();
     playRound(playerSelection, computerSelection);
     console.log("final score ", playerScore + "-" + computerScore);
+    */
 }
+
+const rock = document.querySelector('.rock');
+rock.addEventListener('click', () => {
+    computerSelection = getComputerChoice();
+    playerSelection = "rock";
+    playRound(playerSelection, computerSelection);
+});
+
+const paper = document.querySelector('.paper');
+paper.addEventListener('click', () => {
+    computerSelection = getComputerChoice();
+    playerSelection = "paper";
+    playRound(playerSelection, computerSelection);
+});
+
+const scissors = document.querySelector('.scissors');
+scissors.addEventListener('click', () => {
+    computerSelection = getComputerChoice();
+    playerSelection = "scissors";
+    playRound(playerSelection, computerSelection);
+});
 
