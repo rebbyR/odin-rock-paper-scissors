@@ -78,11 +78,22 @@ function game() {
     */
 }
 
+function scoreKeeper(playerScore, computerScore) {
+    if (playerScore < 5 && computerScore < 5) {
+        console.log("score: " + playerScore + "-" + computerScore);
+    } else if (playerScore == 5 && computerScore < 5) {
+        console.log("You're the first to 5! You win!");
+    } else if (computerScore == 5 && playerScore < 5) {
+        console.log("Computer is the first to 5! You lose!");
+    } else console.log("Too many rounds. Refresh the page to restart score.");
+}
+
 const rock = document.querySelector('.rock');
 rock.addEventListener('click', () => {
     computerSelection = getComputerChoice();
     playerSelection = "rock";
     playRound(playerSelection, computerSelection);
+    scoreKeeper(playerScore, computerScore);
 });
 
 const paper = document.querySelector('.paper');
@@ -90,6 +101,7 @@ paper.addEventListener('click', () => {
     computerSelection = getComputerChoice();
     playerSelection = "paper";
     playRound(playerSelection, computerSelection);
+    scoreKeeper(playerScore, computerScore);
 });
 
 const scissors = document.querySelector('.scissors');
@@ -97,5 +109,6 @@ scissors.addEventListener('click', () => {
     computerSelection = getComputerChoice();
     playerSelection = "scissors";
     playRound(playerSelection, computerSelection);
+    scoreKeeper(playerScore, computerScore);
 });
 
